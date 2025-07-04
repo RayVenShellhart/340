@@ -4,3 +4,129 @@
 *:after {
   box-sizing: border-box;
 }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: overline;
+}
+
+nav {
+  background-color: black;
+  padding: 8px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+.siteName a {
+  font-size:xx-large;
+}
+
+#tools a{
+  font-size: larger;
+}
+
+main {
+  display: grid;
+}
+
+h1 {
+  grid-row: 1/2;
+}
+
+.hero {
+  grid-row: 2/3;
+  width: 100%;
+  position: relative;
+  object-fit: cover;
+}
+
+.hero img {
+  display: block;
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+  margin-right: 1%;
+}
+
+.delorean {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background-color: rgb(255, 254, 254, 0.7);
+  width:fit-content;
+  padding: 0;
+  color: rgba(76, 150, 215, 255);
+  width: 35%;
+  height: auto;
+  font-size: small;
+  line-height: 5px;
+}
+
+.delorean img {
+  width: 80%;
+  height: auto;
+  margin-bottom: 7px;
+}
+
+.upgrades {
+  grid-row: 4/5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.upgrades h2 {
+  grid-column: span 2;
+}
+
+.upgrades figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upgrades figure img {
+  width: 80%;
+  background-color: rgba(76, 150, 215, 255);
+  padding: 15%;
+
+}
+
+.review {
+  grid-row: 3/4;
+  line-height: 160%;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+}
