@@ -33,7 +33,7 @@ Util.getNav = async function (req, res, next) {
 * ************************************ */
 Util.buildClassificationGrid = async function(data){
   let grid
-  if(data.length > 0){
+  if (data.length > 0) {
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
       grid += '<li>'
@@ -41,9 +41,9 @@ Util.buildClassificationGrid = async function(data){
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
       + 'details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
-      +' on CSE Motors" /></a>'
-      grid += '<div class="namePrice">'
+        + ' on CSE Motors" /></a>'
       grid += '<hr />'
+      grid += '<div class="namePrice">'
       grid += '<h2>'
       grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
@@ -61,6 +61,48 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+
+/* **************************************
+* Build the inv view HTML
+* ************************************ */
+Util.buildInvGrid = async function(data){
+  let grid
+  if(data.length > 0){
+    grid = '<div id="item">'
+    data.forEach(vehicle => { 
+      grid += '<ul class="productInfo">'
+      grid += '<li>'
+      grid += 'Mileage: ' + new Intl.NumberFormat('en-Us').format(vehicle.inv_miles)
+      grid += '</li>'
+      grid += '<li>Color: '
+      grid += vehicle.inv_color
+      grid += '</li>'
+      grid += '<li>Year: '
+      grid += vehicle.inv_year
+      grid += '</li>'
+      grid += '<li>Make: '
+      grid += vehicle.inv_make
+      grid += '<li>Model: '
+      grid += vehicle.inv_model
+      grid += '</li>'
+      grid += '<li>Price: $'
+      grid += new Intl.NumberFormat('en-US').format(vehicle.inv_price)
+      grid += '</li>'
+      grid += '</ul>'
+      grid += '<hr />'
+      grid += '<img class="vehicleImg" src="' + vehicle.inv_image + '" alt="' + vehicle.inv_make + '-' + vehicle.inv_model + '">'
+      grid += '<div>'
+      grid += '<p class="description">'
+      grid += vehicle.inv_description
+      grid += '</p>'
+      grid += '</div>'
+    })
+    grid += '</div>'
+  } else { 
+    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return grid
+}
 
 /* ****************************************
  * Middleware For Handling Errors

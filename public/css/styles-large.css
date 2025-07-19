@@ -34,4 +34,25 @@
         line-height:5rem ;
         font-size: large;
     }
+
+    #item {
+        display: grid;
+        grid-template-areas:
+            "hr hr"
+            "img productInfo"
+            "desc desc";
+        line-height: 5vh;
+    }
+
+    #item .productInfo {
+        margin-left: -30%;
+    }
+
+    #inv-display {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        justify-items: center;
+        align-items: center;
+    }
 }
