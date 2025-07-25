@@ -204,3 +204,31 @@ h3 {
 #inv-display li a img {
   max-width: 100%;
 }
+
+.login {
+  background-color: blue;
+  color: white;
+  width: 30%;
+  justify-self: center;
+  & a{
+    color: white;
+  }
+  & fieldset {
+    display: flex;
+    flex-direction: column;
+    & input {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      height: 35px;
+    }
+    & input:required {
+      border-bottom-width: 5px;
+      border-bottom-color: red;
+    }
+    & input:valid {
+      border-bottom-width: 5px;
+      border-bottom-color: green;
+    }
+  }
+}

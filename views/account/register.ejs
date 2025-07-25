@@ -1,0 +1,18 @@
+<!-- content heading -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+        <%- messages() %>
+<form class="login" action="/account/register" method="post">
+    <fieldset>
+        <h3>Register</h3>
+        <label for="fname">First name: <input type="text" name="account_firstname" required id="fname"></label>
+        <label for="lname">Last name: <input type="text" name="account_lastname" required id="lname"></label>
+        <label for="email">Email: <input type="email" name="account_email" id="email" required
+                placeholder="someone@gmail.com"></label>
+        <label for="password">Password: <input type="password" pattern="^(?=.*[A-Z]).*(?=.*[!@#$%^&*_+]).*" minlength="12" name="account_password" id="password" required></label>
+        <input type="submit" value="REGISTER">
+    </fieldset>
+</form>
