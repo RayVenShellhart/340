@@ -8,14 +8,13 @@ const validate = {};
  * ********************************* */
 validate.classificationRules = () => {
   return [
-    // firstname is required and must be string
     body("classification_name")
       .trim()
       .escape()
       .notEmpty()
       .isAlphanumeric()
       .isLength({ min: 1 })
-      .withMessage("Please provide a valid classification name."), // on error this message is sent.
+      .withMessage("Please provide a valid classification name."),
   ];
 };
 
@@ -28,7 +27,7 @@ validate.checkClassificationData = async (req, res, next) => {
   errors = validationResult(req);
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav();
-    res.render("inventory/add-classification", { // Try again
+    res.render("inventory/add-classification", {
       errors,
       title: "Add Classification",
       nav,
@@ -44,13 +43,12 @@ validate.checkClassificationData = async (req, res, next) => {
  * ********************************* */
 validate.inventoryRules = () => {
   return [
-    // Make is required and must be string
     body("inv_make")
       .trim()
       .escape()
       .notEmpty()
       .isLength({ min: 1 })
-      .withMessage("Please provide a make."), // on error this message is sent.
+      .withMessage("Please provide a make."),
 
     body("inv_model")
       .trim()
@@ -110,6 +108,14 @@ validate.inventoryRules = () => {
       .notEmpty()
       .isLength({ min: 1 })
       .withMessage("Please provide a color."),
+
+    body("classification_id")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 1 })
+      .isInt()
+      .withMessage("Please provide a class."),
   ];
 };
 

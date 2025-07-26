@@ -19,9 +19,9 @@
 <form class="login" action="/account/register" method="post">
     <fieldset>
         <h3>Register</h3>
-        <label for="fname">First name: <input type="text" name="account_firstname" required id="fname"></label>
-        <label for="lname">Last name: <input type="text" name="account_lastname" required id="lname"></label>
-        <label for="email">Email: <input type="email" name="account_email" id="email" required
+        <label for="fname">First name: <input type="text" name="account_firstname" required id="fname" value="<%= locals.account_firstname%>"></label>
+        <label for="lname">Last name: <input type="text" name="account_lastname" required id="lname" value="<%= locals.account_lastname%>"></label>
+        <label for="email">Email: <input type="email" name="account_email" id="email" value="<%=locals.account_email%>" required
                 placeholder="someone@gmail.com"></label>
         <label for="password">Password: <input type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" name="account_password" id="password" required></label>
         <span>12 characters, 1number, 1 capital letter, 1 special characters required</span>

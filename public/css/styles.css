@@ -231,4 +231,8 @@ h3 {
       border-bottom-color: green;
     }
   }
+  & label {
+    display: flex;
+    flex-direction: column;
+  }
 }
