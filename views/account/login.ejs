@@ -5,7 +5,7 @@
     </h1>
     <% } else { res.redirect('/') } %>
         <%- messages() %>
-<form class="login">
+<form class="login" action="/account/login" method="post">
     <fieldset>
         <label for="email">Email: <input type="email" name="account_email" id="email" required placeholder="someone@gmail.com"></label>
         <label for="password">Password: <input type="password" name="account_password" id="password" required></label>

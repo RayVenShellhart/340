@@ -1,5 +1,5 @@
 const utilities = require("../utilities/")
-const accountModel = require("../models/account-model")
+const accountModel = require("../models/account-model.js")
 
 /* ****************************************
 *  Deliver login view
@@ -30,8 +30,7 @@ async function buildRegister(req, res, next) {
 async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
-
-  const regResult = await accountModel.registerAccount(
+  const regResult = await accountModel.registerAccounts(
     account_firstname,
     account_lastname,
     account_email,

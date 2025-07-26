@@ -8,14 +8,16 @@
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
+const pool = require('./database/')
+
 const bodyParser = require("body-parser")
+
 
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
-const inventoryRoute = require("./routes/inventoryRoute")
-const accountRoute = require("./routes/accountRoute")
-const utilities = require("./utilities/")
-const pool = require('./database/')
+const inventoryRoute = require("./routes/inventoryRoute.js")
+const accountRoute = require("./routes/accountRoute.js")
+const utilities = require("./utilities/index.js")
 
 const app = express()
 const env = require("dotenv").config()
