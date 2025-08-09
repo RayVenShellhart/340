@@ -33,6 +33,20 @@ invCont.buildByInvId = async function (req, res, next) {
   })
 }
 
+invCont.buildGetAll = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const inv_id = req.params.invId
+  const data = await invModel.getAll()
+  let grid = await utilities.buildClassificationGrid(data)
+  let invMake = data[0].inv_make
+  let invName = data[0].inv_model
+  res.render("./inventory/all", {
+    title: invMake + " " + invName,
+    nav,
+    grid,
+  })
+}
+
 /**********************************
  * Vehicle Management Controllers
  **********************************/

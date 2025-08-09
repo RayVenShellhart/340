@@ -11,6 +11,7 @@ Util.getNav = async function (req, res, next) {
   let list = "<ul>"
   console.log(data)
   list += '<li><a href="/" title="Home page">Home</a></li>'
+  list += '<li><a href="/inv/all" title="All page">All</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
