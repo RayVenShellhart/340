@@ -33,8 +33,8 @@ Util.getNav = async function (req, res, next) {
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
-Util.buildClassificationGrid = async function(data){
-  let grid
+Util.buildClassificationGrid = async function (data) {
+  let grid;
   if (data.length > 0) {
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
@@ -134,7 +134,7 @@ Util.buildClassificationList = async function (classification_id = null) {
  * Wrap other function in this for 
  * General Error Handling
  **************************************** */
-Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+Util.handleErrors = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 
 /* ****************************************
@@ -160,6 +160,17 @@ Util.checkJWTToken = (req, res, next) => {
  }
 }
 
+/* ****************************************
+ *  Check Login
+ * ************************************ */
+ Util.checkLogin = (req, res, next) => {
+  if (res.locals.loggedin) {
+    next()
+  } else {
+    req.flash("notice", "Please log in.")
+    return res.redirect("/account/login")
+  }
+ }
 
 
 module.exports = Util
